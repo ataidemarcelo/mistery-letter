@@ -10,6 +10,13 @@ function createLetter(event) {
   const inputLetterText = document.getElementById('carta-texto');
   const textWords = inputLetterText.value.split(' ');
 
+  const textLength = inputLetterText.value.trim().length;
+
+  if (textLength === 0) {
+    generatedLetter.innerText = 'Por favor, digite o conteúdo da carta.';
+    return;
+  }
+
   for (let index = 0; index < textWords.length; index += 1) {
     const span = document.createElement('span');
     span.innerText = `${textWords[index]}`;

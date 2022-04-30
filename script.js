@@ -18,10 +18,20 @@ function addClasses(item, arrayList) {
   }
 }
 
+function chamgeClasses() {
+  const words = generatedLetter.children;
+  for (let index = 0; index < words.length; index += 1) {
+    words[index].addEventListener('click', () => {
+      console.log('clicou!!!!!');
+      words[index].className = '';
+      addClasses(words[index], arrayListOfClasses);
+    });
+  }
+}
+
 function createLetter(event) {
   event.preventDefault();
   generatedLetter.innerText = '';
-
   const inputLetterText = document.getElementById('carta-texto');
   const textWords = inputLetterText.value.split(' ');
   const textLength = inputLetterText.value.trim().length;
@@ -37,6 +47,10 @@ function createLetter(event) {
     addClasses(span, arrayListOfClasses);
     generatedLetter.appendChild(span);
   }
+  chamgeClasses();
 }
+
+// const words = document.getElementsByClassName('');
+// console.log(words);
 
 btnCreateLetter.addEventListener('click', createLetter);

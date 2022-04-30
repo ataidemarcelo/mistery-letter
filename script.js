@@ -1,6 +1,7 @@
 console.log('Project Mistery Letter!!!');
 
 const btnCreateLetter = document.getElementById('criar-carta');
+const counterLetter = document.getElementById('carta-contador');
 const generatedLetter = document.getElementById('carta-gerada');
 
 const style = ['newspaper', 'magazine1', 'magazine2'];
@@ -35,12 +36,12 @@ function createLetter(event) {
   const inputLetterText = document.getElementById('carta-texto');
   const textWords = inputLetterText.value.split(' ');
   const textLength = inputLetterText.value.trim().length;
+  counterLetter.innerText = textWords.length;
 
   if (textLength === 0) {
     generatedLetter.innerText = 'Por favor, digite o conteúdo da carta.';
     return;
   }
-
   for (let index = 0; index < textWords.length; index += 1) {
     const span = document.createElement('span');
     span.innerText = `${textWords[index]}`;

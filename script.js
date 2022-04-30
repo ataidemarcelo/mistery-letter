@@ -12,7 +12,7 @@ function createLetter(event) {
 
   for (let index = 0; index < textWords.length; index += 1) {
     const span = document.createElement('span');
-    span.innerText = `${textWords[index]} `;
+    span.innerText = `${textWords[index]}`;
     generatedLetter.appendChild(span);
   }
 }
